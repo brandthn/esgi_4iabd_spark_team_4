@@ -55,12 +55,10 @@ def premiere_partie(spark):
           .schema(definir_schema())
           .csv("src/resources/exo4/sell.csv"))
     
-    # Optimisation: Partitionnement intelligent
     nombre_partitions = max(df.rdd.getNumPartitions(), 
                           spark.sparkContext.defaultParallelism)
     df = df.repartition(nombre_partitions, "category")
     
-    # Transformation avec fonctions natives
     df_resultat = (df
         .withColumn("category_name",
             F.when(F.col("category").cast("int") < 6, "food")
@@ -104,9 +102,7 @@ def deuxieme_partie(df_premiere_partie):
     return df_final, metriques
 
 def main():
-    """
-    Fonction principale avec gestion optimisée des ressources.
-    """
+
     spark = creer_spark_session()
     
     try:

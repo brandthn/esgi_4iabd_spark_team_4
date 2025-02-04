@@ -1,0 +1,44 @@
+# Variables d'environnement
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+build/
+
+# it has  credentials
+infra/local.tf
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+# Thumbnails
+._*

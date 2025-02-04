@@ -28,9 +28,9 @@ resource "aws_glue_job" "spark_job" {
     "--enable-continuous-cloudwatch-log" = "true"
     "--enable-metrics"                   = "true"
     "--enable-spark-ui"                 = "true"
-    "--spark-event-logs-path"           = "s3://${aws_s3_bucket.bucket.id}/spark-logs/"
-    "--continuous-log-logGroup"         = "/aws-glue/jobs/output" 
     "--input_path"                      = "s3://${aws_s3_bucket.bucket.id}/data/sell.csv"
+    "--output_bucket"                   = aws_s3_bucket.bucket.id
+    "--continuous-log-logGroup"         = "/aws-glue/jobs/output"
   }
 
   execution_property {
